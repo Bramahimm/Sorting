@@ -134,7 +134,6 @@ vector<int> DataRandom(int ukuran) {
     return angka;
 }
 
-
 vector<int> DataUrut(int ukuran) {
     vector<int> angka(ukuran);
     for (int i = 0; i < ukuran; ++i) {
@@ -142,7 +141,6 @@ vector<int> DataUrut(int ukuran) {
     }
     return angka;
 }
-
 
 vector<int> ArrayTerbalik(int ukuran) {
     vector<int> angka(ukuran);
@@ -152,13 +150,12 @@ vector<int> ArrayTerbalik(int ukuran) {
     return angka;
 }
 
-
 void waktu(void (*sortFunction)(vector<int>&), vector<int> angka, const string& sortName, int ukuran) {
     auto start = high_resolution_clock::now();
     sortFunction(angka);    
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop - start);
-    cout << sortName << " Sort (N=" << ukuran << "): " << duration.count() << " microseconds" << endl;
+    cout << sortName << " Sort (N=" << ukuran << "): " << duration.count() << " mikrodetik" << endl;
 }
 
 int main() {
@@ -169,7 +166,7 @@ int main() {
         vector<int> urut = DataUrut(ukuran);
         vector<int> terbalik = ArrayTerbalik(ukuran);
         
-        cout << "Array Acak:" << endl ;
+        cout << "\nArray Acak:" << endl ;
         waktu(bubbleSort, random, "Bubble", ukuran);
         waktu(insertionSort, random, "Insertion", ukuran);
         waktu(selectionSort, random, "Selection", ukuran);
